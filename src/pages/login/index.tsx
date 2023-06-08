@@ -12,11 +12,16 @@ export const LoginPage = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         
+        if (email === null || email === "" || password === null || password === "") {
+            alert("Fill all fields");
+            return
+        }
+
         console.log(email, password);
     }
 
-    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
-    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value.trim());
+    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value.trim());
 
     return (
         <div className="container">

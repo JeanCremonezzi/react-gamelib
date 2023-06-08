@@ -9,12 +9,24 @@ export const CadastroPage = () => {
     const [password, setPassword] = useState('');
     const [passwordRepeat, setPasswordRepeat] = useState('');
 
-    const handleUsername = (e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value);
-    const handleEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
-    const handlePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
-    const handleRepeatPassword = (e: ChangeEvent<HTMLInputElement>) => setPasswordRepeat(e.target.value);
+    const handleUsername = (e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value.trim());
+    const handleEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value.trim());
+    const handlePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value.trim());
+    const handleRepeatPassword = (e: ChangeEvent<HTMLInputElement>) => setPasswordRepeat(e.target.value.trim());
 
     const handleSubmit = (e: any) => {
+        e.preventDefault();
+
+        if (password != passwordRepeat) {
+            alert("Passwords didn't match");
+            return            
+        }
+
+        if (username === null || username === "" || email === null || email === "" || password === null || password === "") {
+            alert("Fill all fields");
+            return
+        }
+
         console.log(username, email, password, passwordRepeat);
     }
 
@@ -26,7 +38,7 @@ export const CadastroPage = () => {
                 <form className="register-form">
                     <p>register</p>
 
-                    <input type="uusername" placeholder="Enter your username" value={username} onChange={handleUsername}/>
+                    <input type="text" placeholder="Enter your username" value={username} onChange={handleUsername}/>
 
                     <input type="email" placeholder="Enter your email" value={email} onChange={handleEmail}/>
 
