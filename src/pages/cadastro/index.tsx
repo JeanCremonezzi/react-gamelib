@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import './style.css'
 import { LandingNav } from '../../components/landingNav';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export const CadastroPage = () => {
     const [username, setUsername] = useState('');
@@ -9,21 +10,33 @@ export const CadastroPage = () => {
     const [password, setPassword] = useState('');
     const [passwordRepeat, setPasswordRepeat] = useState('');
 
-    const handleUsername = (e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value.trim());
+    const handleUsername = (e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value);
     const handleEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value.trim());
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value.trim());
     const handleRepeatPassword = (e: ChangeEvent<HTMLInputElement>) => setPasswordRepeat(e.target.value.trim());
+
+    const showToast = (message: string) => {
+        toast.error(message, {
+            style: {
+                borderRadius: '8px',
+                background: '#ff7070',
+                color: '#fff',
+                fontWeight: 'bolder',
+                fontFamily: "'Josefin Sans', sans-serif"
+            },
+        });
+    }
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
         if (password != passwordRepeat) {
-            alert("Passwords didn't match");
+            showToast("Passwords didn't match");
             return            
         }
 
-        if (username === null || username === "" || email === null || email === "" || password === null || password === "") {
-            alert("Fill all fields");
+        if (username === null || username.trim() === "" || email === null || email === "" || password === null || password === "") {
+            showToast("Please fill all fields!");
             return
         }
 

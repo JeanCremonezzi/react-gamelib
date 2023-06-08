@@ -4,6 +4,7 @@ import Valorant from "../../assets/valorant.svg";
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LandingNav } from '../../components/landingNav';
+import toast from 'react-hot-toast';
 
 export const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -13,7 +14,16 @@ export const LoginPage = () => {
         e.preventDefault();
         
         if (email === null || email === "" || password === null || password === "") {
-            alert("Fill all fields");
+            toast.error('Please fill all fields!', {
+                style: {
+                    borderRadius: '8px',
+                    background: '#ff7070',
+                    color: '#fff',
+                    fontWeight: 'bolder',
+                    fontFamily: "'Josefin Sans', sans-serif"
+                },
+            });
+
             return
         }
 
