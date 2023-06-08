@@ -6,28 +6,47 @@ import { Link } from 'react-router-dom';
 import { LandingNav } from '../../components/landingNav';
 import toast from 'react-hot-toast';
 
+import { signin } from '../../services/api/routes.ts';
+
 export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const showToast = (message: string) => {
+        toast.error(message, {
+            style: {
+                borderRadius: '8px',
+                background: 'var(--color-error)',
+                color: '#fff',
+                fontWeight: 'bolder',
+                fontFamily: "'Josefin Sans', sans-serif"
+            },
+        });
+    }
+
+    const showOkToast = (message: string) => {
+        toast.success(message, {
+            style: {
+                borderRadius: '8px',
+                background: 'var(--color-success)',
+                color: '#545454',
+                fontWeight: 'bolder',
+                fontFamily: "'Josefin Sans', sans-serif"
+            },
+        });
+    }
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
         
         if (email === null || email === "" || password === null || password === "") {
-            toast.error('Please fill in all fields!', {
-                style: {
-                    borderRadius: '8px',
-                    background: 'var(--color-error)',
-                    color: '#fff',
-                    fontWeight: 'bolder',
-                    fontFamily: "'Josefin Sans', sans-serif"
-                },
-            });
-
+            showToast('Please fill in all fields!');
             return
         }
 
-        console.log(email, password);
+        signin({email, password})
+            .then((res) => showOkToast(res.data.message))
+            .catch((err) => showToast(err.response.data.message))
     }
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value.trim());
