@@ -27,6 +27,16 @@ body {
   background-color: var(--background);
 }
 
+a {
+  text-decoration: none;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 10px 6px -6px #0f0f0fd2;
+  -moz-box-shadow: 0 10px 6px -6px #0f0f0fd2;
+  box-shadow: 0 10px 6px -6px #0f0f0fd2;
+}
+
 @media (max-width: 600px) {
 	:root {
 		font-size: 12px;

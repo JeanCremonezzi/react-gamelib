@@ -1,0 +1,144 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1600px;
+}
+
+.landing-nav {
+  width: 100%;
+  height: 120px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--surface);
+  border-radius: 0 0 20px 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.landing-nav a {
+  font-size: 3rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+}
+
+.landing-main {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--surface);
+  border-radius: 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  margin-top: 5rem;
+  width: 100%;
+  height: 100%;
+  max-height: 700px;
+}
+
+.landing-main img {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  
+  height: 750px;
+  
+  margin-left: -100px;
+  margin-top: -50px;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 420px;
+}
+
+.login-form p {
+  font-size: 5rem;
+}
+
+.login-form input {
+  background: none;
+  border: 1px solid var(--highlight);
+  margin-top: 32px;
+  border-radius: 8px;
+  height: 64px;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.login-form input::placeholder {
+  color: var(--text-tertiary);
+  font-weight: 100;
+}
+
+.login-form button {
+  margin-top: 32px;
+  background: var(--highlight);
+  border: 0;
+  border-radius: 6px;
+  height: 64px;
+  width: 100%;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.login-form span {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  width: 100%;
+
+  color: var(--text-tertiary);
+}
+
+.login-form span a {
+  font-weight: 600;
+}
+
+@media (max-width: 1800px) {
+  .landing-main img {
+    height: 650px;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .landing-main img {
+    display: none;
+  }
+
+  .landing-main {
+    background: none;
+  }
+
+  .login-form {
+    padding: 0 32px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 800px) {
+  .login-form {
+    max-width: 100%;
+  }
+
+  .landing-nav {
+    gap: 3rem;
+  }
+
+  .landing-nav a {
+    font-size: 2rem;
+  }
+}
