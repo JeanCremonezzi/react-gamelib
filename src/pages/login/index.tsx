@@ -2,6 +2,8 @@ import './style.css'
 
 import Valorant from "../../assets/valorant.svg";
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { LandingNav } from '../../components/landingNav';
 
 export const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -13,21 +15,12 @@ export const LoginPage = () => {
         console.log(email, password);
     }
 
-    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
-    }
-
-    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
-    }
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
+    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
     return (
         <div className="container">
-            <nav className="landing-nav shadow">
-                <a href="#">games</a>
-                <a href="#">sign up</a>
-                <a href="#">about</a>
-            </nav>
+            <LandingNav />
 
             <main className="landing-main">
                 <img src={Valorant}/>
@@ -41,7 +34,7 @@ export const LoginPage = () => {
 
                     <button type="submit" onClick={handleSubmit}>sign in</button>
 
-                    <span>Don't have an account? <a href="#">Sign up</a></span>
+                    <span>Don't have an account? <Link to="/register">Sign up</Link></span>
                 </form>
             </main>
         </div>
