@@ -31,12 +31,12 @@ export const CadastroPage = () => {
         e.preventDefault();
 
         if (password != passwordRepeat) {
-            showToast("Passwords didn't match");
+            showToast("Passwords do not match");
             return            
         }
 
         if (username === null || username.trim() === "" || email === null || email === "" || password === null || password === "") {
-            showToast("Please fill all fields!");
+            showToast("Please fill in all fields!");
             return
         }
 

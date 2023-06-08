@@ -13,6 +13,11 @@
   --text-primary: #DEDEDE;
   --text-secondary: #BEBEBE;
   --text-tertiary: #737373;
+
+  --color-success: #CDFFCD;
+  --color-error: #FF7070;
+  --color-alert: #FFFF80;
+  --color-info: #ADD8E6;
 }
 
 * {

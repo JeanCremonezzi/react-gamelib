@@ -14,7 +14,7 @@ export const LoginPage = () => {
         e.preventDefault();
         
         if (email === null || email === "" || password === null || password === "") {
-            toast.error('Please fill all fields!', {
+            toast.error('Please fill in all fields!', {
                 style: {
                     borderRadius: '8px',
                     background: '#ff7070',
