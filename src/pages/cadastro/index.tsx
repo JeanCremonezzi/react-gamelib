@@ -4,6 +4,8 @@ import { LandingNav } from '../../components/landingNav';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
+import { signup } from '../../services/api/routes.ts';
+
 export const CadastroPage = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -19,8 +21,20 @@ export const CadastroPage = () => {
         toast.error(message, {
             style: {
                 borderRadius: '8px',
-                background: '#ff7070',
+                background: 'var(--color-error)',
                 color: '#fff',
+                fontWeight: 'bolder',
+                fontFamily: "'Josefin Sans', sans-serif"
+            },
+        });
+    }
+
+    const showOkToast = (message: string) => {
+        toast.success(message, {
+            style: {
+                borderRadius: '8px',
+                background: 'var(--color-success)',
+                color: '#545454',
                 fontWeight: 'bolder',
                 fontFamily: "'Josefin Sans', sans-serif"
             },
@@ -39,8 +53,10 @@ export const CadastroPage = () => {
             showToast("Please fill in all fields!");
             return
         }
-
-        console.log(username, email, password, passwordRepeat);
+        
+        signup({username, email, password})
+            .then((res) => showOkToast(res.data.message))
+            .catch((err) => showToast(err.response.data.message))
     }
 
     return (

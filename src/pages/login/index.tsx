@@ -17,7 +17,7 @@ export const LoginPage = () => {
             toast.error('Please fill in all fields!', {
                 style: {
                     borderRadius: '8px',
-                    background: '#ff7070',
+                    background: 'var(--color-error)',
                     color: '#fff',
                     fontWeight: 'bolder',
                     fontFamily: "'Josefin Sans', sans-serif"
