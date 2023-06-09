@@ -1,5 +1,6 @@
 import { GamesInterface } from "../../services/api/interfaces";
 import './style.css';
+import { BsFillBookmarkPlusFill } from "react-icons/bs"
 
 interface CardProps {
     game: GamesInterface
@@ -8,6 +9,10 @@ interface CardProps {
 export const Card = (props: CardProps) => {
     return (
         <div key={props.game.id} className="card shadow">
+            <div className="game-add">
+                <BsFillBookmarkPlusFill className="btn-add" size={64} />
+            </div>
+
             {props.game.cover ? <img src={props.game.cover} alt={`Cover art from ${props.game.name}`}/> : ''}
 
             <span className="filter"></span>

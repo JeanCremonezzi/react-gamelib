@@ -12,6 +12,28 @@
     cursor: pointer;
 }
 
+.game-add {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.616), #9306c2);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.btn-add {
+    fill: white;
+}
+
+.card:hover .game-add {
+    opacity: 100%;
+    
+}
+
 .card img {
     pointer-events: none;
     position: absolute;
@@ -21,11 +43,12 @@
     object-fit: cover;
 }
 
-.card .filter {
+.filter {
     display: block;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.616), rgb(0, 0, 0))
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.616), rgb(0, 0, 0));
+    transition: all 1s;
 }
 
 .game-info {
