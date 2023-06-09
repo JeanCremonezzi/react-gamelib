@@ -5,7 +5,7 @@ export const LandingNav = () => {
     return (
         <nav className="landing-nav shadow">
             <Link to="/games">games</Link>
-            <Link to="/register">sign up</Link>
+            <Link to="/">collection</Link>
             <Link to="/">about</Link>
         </nav>
     )
