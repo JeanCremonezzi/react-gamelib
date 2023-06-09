@@ -4,7 +4,6 @@ import './style.css';
 import { BsFillBookmarkPlusFill } from "react-icons/bs"
 import toast from 'react-hot-toast';
 
-
 interface CardProps {
     game: GamesInterface
 }

@@ -2,7 +2,7 @@ import './style.css'
 
 import Valorant from "../../assets/valorant.svg";
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LandingNav } from '../../components/landingNav';
 import toast from 'react-hot-toast';
 
@@ -12,24 +12,14 @@ export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
+
     const showToast = (message: string) => {
         toast.error(message, {
             style: {
                 borderRadius: '8px',
                 background: 'var(--color-error)',
                 color: '#fff',
-                fontWeight: 'bolder',
-                fontFamily: "'Josefin Sans', sans-serif"
-            },
-        });
-    }
-
-    const showOkToast = (message: string) => {
-        toast.success(message, {
-            style: {
-                borderRadius: '8px',
-                background: 'var(--color-success)',
-                color: '#545454',
                 fontWeight: 'bolder',
                 fontFamily: "'Josefin Sans', sans-serif"
             },
@@ -45,7 +35,7 @@ export const LoginPage = () => {
         }
 
         signin({email, password})
-            .then((res) => showOkToast(res.data.message))
+            .then((res) => navigate("/games"))
             .catch((err) => showToast(err.response.data.message))
     }
 

@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import './style.css'
 import { LandingNav } from '../../components/landingNav';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 import { signup } from '../../services/api/routes.ts';
@@ -12,6 +12,8 @@ export const CadastroPage = () => {
     const [password, setPassword] = useState('');
     const [passwordRepeat, setPasswordRepeat] = useState('');
 
+    const navigate = useNavigate();
+    
     const handleUsername = (e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value);
     const handleEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value.trim());
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value.trim());
@@ -23,18 +25,6 @@ export const CadastroPage = () => {
                 borderRadius: '8px',
                 background: 'var(--color-error)',
                 color: '#fff',
-                fontWeight: 'bolder',
-                fontFamily: "'Josefin Sans', sans-serif"
-            },
-        });
-    }
-
-    const showOkToast = (message: string) => {
-        toast.success(message, {
-            style: {
-                borderRadius: '8px',
-                background: 'var(--color-success)',
-                color: '#545454',
                 fontWeight: 'bolder',
                 fontFamily: "'Josefin Sans', sans-serif"
             },
@@ -55,7 +45,7 @@ export const CadastroPage = () => {
         }
         
         signup({username, email, password})
-            .then((res) => showOkToast(res.data.message))
+            .then((res) => navigate("/games"))
             .catch((err) => showToast(err.response.data.message))
     }
 
