@@ -4,11 +4,6 @@
   align-items: center;
 }
 
-.container {
-  width: 100%;
-  max-width: 1600px;
-}
-
 .landing-main {
   display: flex;
   justify-content: space-between;
@@ -87,10 +82,6 @@
 @media (max-width: 1800px) {
   .landing-main img {
     height: 650px;
-  }
-
-  .container {
-    max-width: 1200px;
   }
 }
 

@@ -3,12 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
-  
-.container {
-    width: 100%;
-    max-width: 1600px;
-}
-  
+
 .register-main {
     display: flex;
     align-items: center;
@@ -72,12 +67,6 @@
   
 .register-form span a {
     font-weight: 600;
-}
-  
-@media (max-width: 1800px) {
-    .container {
-      max-width: 1200px;
-    }
 }
   
 @media (max-width: 1200px) {

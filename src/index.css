@@ -42,8 +42,19 @@ a {
   box-shadow: 0 10px 6px -6px #0f0f0fd2;
 }
 
+.container {
+  width: 100%;
+  max-width: 1600px;
+}
+
 @media (max-width: 600px) {
 	:root {
 		font-size: 12px;
 	}
+}
+
+@media (max-width: 1800px) {
+  .container {
+    max-width: 1200px;
+  }
 }

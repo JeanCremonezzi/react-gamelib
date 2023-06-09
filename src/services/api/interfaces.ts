@@ -8,3 +8,10 @@ export interface SigninInterface {
     email: string,
     password: string
 }
+
+export interface GamesInterface {
+    cover: string,
+    id: number,
+    initial_release: string,
+    name: string
+}
