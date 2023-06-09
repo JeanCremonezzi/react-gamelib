@@ -5,6 +5,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { GamesInterface } from "../../services/api/interfaces"
 import { Card } from '../../components/card/index.tsx';
+import { IoMdSearch } from "react-icons/io"
 
 export const GamesPage = () => {
     const [game, setGame] = useState('');
@@ -43,7 +44,9 @@ export const GamesPage = () => {
                     <div className="search-row">
                         <input type="search" name="searchGame" id="searchGame" value={game} onChange={handleGame}/>
 
-                        <button type="button" onClick={handleSearch}>Search</button>
+                        <button type="button" onClick={handleSearch}>
+                            <IoMdSearch className="search-icon" size={28} />
+                        </button>
                     </div>
                 </div>
 
