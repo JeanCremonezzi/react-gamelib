@@ -20,7 +20,7 @@
 
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.616), #9306c2);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.616), var(--highlight));
     opacity: 0;
     transition: opacity 0.4s;
 }
