@@ -1,9 +1,9 @@
-import { SlOptions } from "react-icons/sl"
 import { getCollection } from '../../services/api/routes.ts';
 
 import "./style.css"
 import { useEffect, useState } from "react"
 import { AddGameInterface } from "../../services/api/interfaces.ts";
+import { GameRow } from "../../components/gameRow/index.tsx";
 
 export const CollectionPage = () => {
     const [collection, setCollection] = useState<AddGameInterface[]>([]);
@@ -33,17 +33,7 @@ export const CollectionPage = () => {
                     </thead>
 
                     <tbody>
-                        {collection.map((game) => {
-                            return (
-                                <tr key={game.gameId}>
-                                    <td>{game.gameName}</td>
-                                    <td>{game.platform}</td>
-                                    <td>{game.yearPlayed}</td>
-                                    <td><span>{game.hoursPlayed}</span> hrs</td>
-                                    <td><SlOptions className="btn-options"/></td>
-                                </tr>
-                            )
-                        })}
+                        {collection.map((game) => <GameRow game={game} key={game.gameId}/>)}
                     </tbody>
                 </table>
             </div>
