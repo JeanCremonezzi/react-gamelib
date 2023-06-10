@@ -79,11 +79,12 @@ export const GameRow = (props: GameRowProps) => {
 
     const handleYear = (e: React.ChangeEvent<HTMLInputElement>) => setYear(e.target.value)
     const handleHours = (e: React.ChangeEvent<HTMLInputElement>) => setHours(e.target.value)
+    const handlePlatform = (e: React.ChangeEvent<HTMLInputElement>) => setPlatform(e.target.value)
 
     return (
         <tr onMouseLeave={() => setIsMenuOpen(false)}>
             <td>{props.game.gameName}</td>
-            <td>{props.game.platform}</td>
+            <td><input className="cell-input" value={platform} onChange={handlePlatform}/></td>
             <td><input className="cell-input" value={year} onChange={handleYear}/></td>
             <td><input className="cell-input" value={hours} onChange={handleHours}/></td>
             <td>
