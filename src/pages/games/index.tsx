@@ -1,4 +1,3 @@
-import { LandingNav } from '../../components/landingNav'
 import './style.css'
 import { gamesByName } from '../../services/api/routes.ts';
 import { useState } from 'react';

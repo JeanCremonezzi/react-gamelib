@@ -11,7 +11,23 @@ export interface SigninInterface {
 
 export interface GamesInterface {
     cover: string,
-    id: number,
+    id: string,
     initial_release: string,
     name: string
+}
+
+export interface PlatformInterface {
+    id: string,
+    name: string,
+    logo: {
+        logo_url: string
+    }
+}
+
+export interface GameInterface {
+    cover?: string,
+    id?: string,
+    initial_release?: string,
+    name?: string,
+    platforms?: PlatformInterface[]
 }

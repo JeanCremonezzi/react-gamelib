@@ -13,3 +13,7 @@ export const signin = async (data: SigninInterface) => {
 export const gamesByName = async (name: string) => {
     return await api.get("/games", { params: { name } });
 }
+
+export const gameById = async (id: string) => {
+    return await api.get(`/games/${id}`);
+}
