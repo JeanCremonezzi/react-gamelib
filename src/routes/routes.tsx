@@ -4,6 +4,7 @@ import { CadastroPage } from "../pages/cadastro";
 import { GamesPage } from "../pages/games";
 import { ErrorPage } from "../pages/error";
 import { LandingNav } from "../components/landingNav";
+import { CollectionPage } from "../pages/collection";
 
 export const Router = () => {
     return (
@@ -15,6 +16,7 @@ export const Router = () => {
                     <Route path="/" element={<LoginPage/>}/>
                     <Route path="/register" element={<CadastroPage/>}/>
                     <Route path="/games" element={<GamesPage/>}/>
+                    <Route path="/collection" element={<CollectionPage/>}/>
 
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>

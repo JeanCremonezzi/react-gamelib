@@ -29,7 +29,8 @@ export const Card = (props: CardProps) => {
         }
 
         const game = {
-            game: props.game.id,
+            gameId: props.game.id,
+            gameName: props.game.name,
             platform: 'None',
             yearPlayed: new Date().getFullYear(),
         }

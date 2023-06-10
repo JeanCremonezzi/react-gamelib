@@ -1,0 +1,46 @@
+.collection-main {
+    margin-top: 64px;
+    padding: 16px;
+}
+
+.collection-title { 
+    font-size: 2.3rem;
+    font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.collection-table {
+    min-width: 900px;
+    margin-top: 32px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.collection-table tr {
+    height: 40px;
+    border-bottom: 1px solid var(--text-tertiary);
+}
+
+.collection-table thead {
+    text-transform: capitalize;
+}
+
+.collection-table thead tr th {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.collection-table tbody td {
+    height: 56px;
+    text-align: center;
+}
+
+.btn-options {
+    cursor: pointer;
+}

@@ -17,7 +17,8 @@ export interface GamesInterface {
 }
 
 export interface AddGameInterface {
-    game: string,
+    gameId: string,
+    gameName: string,
     platform: string,
     yearPlayed: number,
     hoursPlayed?: number
