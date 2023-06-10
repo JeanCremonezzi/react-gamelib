@@ -34,25 +34,21 @@ export const GamesPage = () => {
     }
 
     return (
-        <div className="container">
-            <LandingNav/>
-
-            <div className="games-main">
-                <div className="games-search">
-                    <label htmlFor="searchGame">Search games by name</label>
+        <div className="games-main">
+            <div className="games-search">
+                <label htmlFor="searchGame">Search games by name</label>
                     
-                    <div className="search-row">
-                        <input type="search" name="searchGame" id="searchGame" value={game} onChange={handleGame}/>
+                <div className="search-row">
+                    <input type="search" name="searchGame" id="searchGame" value={game} onChange={handleGame}/>
 
-                        <button type="button" onClick={handleSearch}>
-                            <IoMdSearch className="search-icon" size={28} />
-                        </button>
-                    </div>
+                    <button type="button" onClick={handleSearch}>
+                        <IoMdSearch className="search-icon" size={28} />
+                    </button>
                 </div>
+            </div>
 
-                <div className="games-list">
-                    {gamesList.map((game) => <Card game={game} key={game.id}/>)}
-                </div>
+            <div className="games-list">
+                {gamesList.map((game) => <Card game={game} key={game.id}/>)}
             </div>
         </div>
     )
