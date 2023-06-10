@@ -21,3 +21,9 @@
     border: 0;
     cursor: pointer;
 }
+
+.cell-input {
+    background: none;
+    border: 0;
+    text-align: center;
+}

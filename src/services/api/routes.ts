@@ -1,6 +1,6 @@
 import api from './api.ts'
 
-import { SignupInterface, SigninInterface, AddGameInterface } from './interfaces.ts';
+import { SignupInterface, SigninInterface, AddGameInterface, EditGameInterface } from './interfaces.ts';
 
 export const signup = async (data: SignupInterface) => {
     return await api.post("/user/signup", data);
@@ -28,4 +28,8 @@ export const getCollection = async () => {
 
 export const deleteGame = async (id: string) => {
     return await api.delete(`/collections/${id}`);
+}
+
+export const editGame = async (data: EditGameInterface) => {
+    return await api.put("/collections", data);
 }

@@ -28,7 +28,7 @@ export const CollectionPage = () => {
                             <th>game</th>
                             <th>platform</th>
                             <th>year played</th>
-                            <th>time played</th>
+                            <th>hours played</th>
                             <th>options</th>
                         </tr>
                     </thead>
