@@ -41,7 +41,7 @@ export const Card = (props: CardProps) => {
                     style: {
                         borderRadius: '8px',
                         background: 'var(--color-success)',
-                        color: 'var(--text-tertiary)',
+                        color: '#2B2B2B',
                         fontWeight: 'bolder',
                         fontFamily: "'Josefin Sans', sans-serif"
                     },

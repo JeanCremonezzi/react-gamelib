@@ -15,6 +15,7 @@ export const CollectionPage = () => {
         })
     }, [])
     
+    const handleRemoveFromCollection = (id: string) => setCollection((prevState) => prevState.filter((item) => item.gameId !== id))
 
     return (
         <div className="collection-main">
@@ -33,7 +34,7 @@ export const CollectionPage = () => {
                     </thead>
 
                     <tbody>
-                        {collection.map((game) => <GameRow game={game} key={game.gameId}/>)}
+                        {collection.map((game) => <GameRow game={game} key={game.gameId} removeFromCollection={handleRemoveFromCollection}/>)}
                     </tbody>
                 </table>
             </div>

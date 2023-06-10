@@ -2,12 +2,14 @@ import { useState } from "react";
 import { AddGameInterface } from "../../services/api/interfaces.ts";
 import { SlOptions } from "react-icons/sl"
 import { MdDeleteForever, MdRefresh } from "react-icons/md"
-import { RxUpdate } from "react-icons/rx"
+import { deleteGame } from '../../services/api/routes.ts';
+import toast from 'react-hot-toast';
 
 import "./style.css"
 
 export interface GameRowProps {
-    game: AddGameInterface
+    game: AddGameInterface,
+    removeFromCollection: (id: string) => void
 }
 
 export const GameRow = (props: GameRowProps) => {
@@ -17,6 +19,33 @@ export const GameRow = (props: GameRowProps) => {
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         setPosition([e.pageX, e.pageY])
         setIsMenuOpen((prevState) => !prevState);
+    }
+
+    const handleDelete = () => {
+        deleteGame(props.game.gameId)
+            .then((res) => {
+                toast.success(res.data.message, {
+                    style: {
+                        borderRadius: '8px',
+                        background: 'var(--color-success)',
+                        color: '#2B2B2B',
+                        fontWeight: 'bolder',
+                        fontFamily: "'Josefin Sans', sans-serif"
+                    },
+                });
+                props.removeFromCollection(props.game.gameId);
+            })
+            .catch((err) => {
+                toast.error(err.response.data.message, {
+                    style: {
+                        borderRadius: '8px',
+                        background: 'var(--color-error)',
+                        color: '#fff',
+                        fontWeight: 'bolder',
+                        fontFamily: "'Josefin Sans', sans-serif"
+                    },
+                });
+            })
     }
 
     return (
@@ -36,7 +65,7 @@ export const GameRow = (props: GameRowProps) => {
                     }}>
                         <button className="context-update-btn"><MdRefresh size={24} fill="var(--color-info)"/></button>
                         <span className="separator"></span>
-                        <button className="context-delete-btn"><MdDeleteForever size={24} fill="var(--color-error)"/></button>
+                        <button className="context-delete-btn" onClick={handleDelete}><MdDeleteForever size={24} fill="var(--color-error)"/></button>
                     </div> 
                 : null}
             </td>

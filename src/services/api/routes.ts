@@ -25,3 +25,7 @@ export const addGame = async (data: AddGameInterface) => {
 export const getCollection = async () => {
     return await api.get("/collections");
 }
+
+export const deleteGame = async (id: string) => {
+    return await api.delete(`/collections/${id}`);
+}
