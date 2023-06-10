@@ -21,3 +21,7 @@ export const gameById = async (id: string) => {
 export const addGame = async (data: AddGameInterface) => {
     return await api.post("/collections", data);
 }
+
+export const getCollection = async () => {
+    return await api.get("/collections");
+}
