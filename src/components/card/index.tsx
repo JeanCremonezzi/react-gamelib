@@ -3,6 +3,8 @@ import { GamesInterface } from "../../services/api/interfaces";
 import './style.css';
 import { BsFillBookmarkPlusFill } from "react-icons/bs"
 import toast from 'react-hot-toast';
+import { addGame } from '../../services/api/routes.ts';
+
 
 interface CardProps {
     game: GamesInterface
@@ -25,6 +27,36 @@ export const Card = (props: CardProps) => {
 
             return
         }
+
+        const game = {
+            game: props.game.id,
+            platform: 'None',
+            yearPlayed: new Date().getFullYear(),
+        }
+
+        addGame(game)
+            .then((res) => {
+                toast.success(res.data.message, {
+                    style: {
+                        borderRadius: '8px',
+                        background: 'var(--color-success)',
+                        color: 'var(--text-tertiary)',
+                        fontWeight: 'bolder',
+                        fontFamily: "'Josefin Sans', sans-serif"
+                    },
+                });
+            })
+            .catch((err) => {
+                toast.error(err.response.data.message, {
+                    style: {
+                        borderRadius: '8px',
+                        background: 'var(--color-error)',
+                        color: '#fff',
+                        fontWeight: 'bolder',
+                        fontFamily: "'Josefin Sans', sans-serif"
+                    },
+                });
+            })
     }
 
     return (
